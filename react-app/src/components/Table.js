@@ -62,6 +62,30 @@ class Table extends Component {
     } 
 
   }
+  //fill all uncolored cells with the currently selected color
+  fillUC = () => {
+    let color = this.state.selectedColor;
+    document.querySelectorAll('td').forEach(td => { 
+        if(td.style.backgroundColor == "" || td.style.backgroundColor == "blue")
+        {
+            td.style.backgroundColor = color;
+        }
+    });
+  }
+  
+  //fill all cells with the currently selected color
+  fillAll = () => {
+    // stored selected color value
+    let color = this.state.selectedColor;
+    //select all grids, and change color to selected one
+    let allgrids = document.querySelectorAll('td').forEach(td => td.style.backgroundColor = color);
+    console.log(allgrids);
+  }
+
+  clearAll = () => {
+    //change all grids color into intial color = "blue"
+    document.querySelectorAll('td').forEach(td => td.style.backgroundColor = this.state.selectedColor);
+  }
 
   handleColorChange = (event) => {
     this.setState({selectedColor: event.target.value});
@@ -84,10 +108,16 @@ class Table extends Component {
         <button onClick={this.addColumn}>Add Column</button>
         <button onClick={this.removeCol}>Remove Column</button>
         <button onClick={this.removeRow}>Remove Row</button>
+        <button onclick={this.fillUC}>Fill All Uncolored</button>
+        <button onclick={this.fillAll}>Fill All</button>
+        <button onclick={this.clearAll}>Clear</button>
         <select onChange={this.handleColorChange}>
           <option value="red">red</option>
           <option value="blue">blue</option>
           <option value="yellow">yellow</option>
+          <option value="orange">Orange</option>
+          <option value="green">Green</option>
+          <option value="purple">Purple</option>
         </select>
         <table>
           {rows}
