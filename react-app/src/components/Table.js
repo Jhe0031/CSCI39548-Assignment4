@@ -10,13 +10,14 @@ class Table extends Component {
       selectedColor: "red"
     }
   }
+
 //add a row and increment numRows by 1
   addRow = () => {
     this.setState(state => {
         return {numRows: state.numRows + 1}
     });
-    console.log('Add Row', this.state.numRows);
   }
+
 //add a column and increment numCol by 1
   addColumn = () => {
     this.setState(state => {
@@ -27,8 +28,8 @@ class Table extends Component {
     {
       this.addRow();
     }
-    console.log('Add Column', this.state.numCols);
   }
+
 //remove a row
   removeRow = () => {
     //if numRows is 0, state numRows/numCols
@@ -45,6 +46,7 @@ class Table extends Component {
     } 
 
   }
+
 //remove column
   removeCol = () => {
     //if no columns are to be removed, return the state of numCols and numRows
@@ -60,8 +62,8 @@ class Table extends Component {
         return {numCols:state.numCols - 1}
       });
     } 
-
   }
+  
   //fill all uncolored cells with the currently selected color
   fillUC = () => {
     let color = this.state.selectedColor;
@@ -93,6 +95,7 @@ class Table extends Component {
 
   handleApplyColor = (event) => {
     event.target.style.backgroundColor = this.state.selectedColor;
+    console.log(this.state.selectedColor);
   }
 
   render() {
@@ -108,16 +111,16 @@ class Table extends Component {
         <button onClick={this.addColumn}>Add Column</button>
         <button onClick={this.removeCol}>Remove Column</button>
         <button onClick={this.removeRow}>Remove Row</button>
-        <button onclick={this.fillUC}>Fill All Uncolored</button>
-        <button onclick={this.fillAll}>Fill All</button>
-        <button onclick={this.clearAll}>Clear</button>
+        <button onClick={this.fillUC}>Fill All Uncolored</button>
+        <button onClick={this.fillAll}>Fill All</button>
+        <button onClick={this.clearAll}>Clear</button>
         <select onChange={this.handleColorChange}>
-          <option value="red">red</option>
-          <option value="blue">blue</option>
-          <option value="yellow">yellow</option>
-          <option value="orange">Orange</option>
-          <option value="green">Green</option>
-          <option value="purple">Purple</option>
+          <option value="#ff6961">Red</option>
+          <option value="#ffb347">Orange</option>
+          <option value="#FDFD96">Yellow</option>
+          <option value="#77dd77">Green</option>
+          <option value="#aec6cf">Blue</option>
+          <option value="#b19cd9">Purple</option>
         </select>
         <table>
           {rows}
