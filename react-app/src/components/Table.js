@@ -85,7 +85,7 @@ class Table extends Component {
   }
 
   clearAll = () => {
-    //change all grids color into intial color = "white"
+    //change all grids color into original color
     document.querySelectorAll('td').forEach(td => td.style.backgroundColor = 'white');
   }
 
