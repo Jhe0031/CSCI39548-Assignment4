@@ -1,5 +1,5 @@
 function TableCell(props) {
-    return <td onClick={props.handleApplyColor}></td>
-  }
+  return <td onClick={props.handleApplyColor}></td>
+}
   
-  export default TableCell;
+export default TableCell;
