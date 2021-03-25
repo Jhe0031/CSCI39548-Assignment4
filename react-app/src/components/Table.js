@@ -68,7 +68,7 @@ class Table extends Component {
   fillUC = () => {
     let color = this.state.selectedColor;
     document.querySelectorAll('td').forEach(td => { 
-        if(td.style.backgroundColor == "" || td.style.backgroundColor == "blue")
+        if(td.style.backgroundColor == "" || td.style.backgroundColor == "white")
         {
             td.style.backgroundColor = color;
         }
@@ -85,7 +85,7 @@ class Table extends Component {
   }
 
   clearAll = () => {
-    //change all grids color into intial color = "blue"
+    //change all grids color into intial color = "white"
     document.querySelectorAll('td').forEach(td => td.style.backgroundColor = 'white');
   }
 
