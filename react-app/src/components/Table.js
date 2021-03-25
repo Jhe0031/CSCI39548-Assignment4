@@ -86,7 +86,7 @@ class Table extends Component {
 
   clearAll = () => {
     //change all grids color into intial color = "blue"
-    document.querySelectorAll('td').forEach(td => td.style.backgroundColor = this.state.selectedColor);
+    document.querySelectorAll('td').forEach(td => td.style.backgroundColor = 'white');
   }
 
   handleColorChange = (event) => {
