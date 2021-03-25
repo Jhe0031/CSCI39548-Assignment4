@@ -63,20 +63,30 @@ class Table extends Component {
       });
     } 
   }
-
-//fill all uncolored
+  
+  //fill all uncolored cells with the currently selected color
   fillUC = () => {
-    console.log('Fill uncolored');
+    let color = this.state.selectedColor;
+    document.querySelectorAll('td').forEach(td => { 
+        if(td.style.backgroundColor == "" || td.style.backgroundColor == "blue")
+        {
+            td.style.backgroundColor = color;
+        }
+    });
   }
-
-//fill all
+  
+  //fill all cells with the currently selected color
   fillAll = () => {
-    console.log('Fill all');
+    // stored selected color value
+    let color = this.state.selectedColor;
+    //select all grids, and change color to selected one
+    let allgrids = document.querySelectorAll('td').forEach(td => td.style.backgroundColor = color);
+    console.log(allgrids);
   }
 
-//clear all colors
   clearAll = () => {
-    console.log('Clear');
+    //change all grids color into intial color = "blue"
+    document.querySelectorAll('td').forEach(td => td.style.backgroundColor = this.state.selectedColor);
   }
 
   handleColorChange = (event) => {
